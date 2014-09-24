@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <!-- This is the start (home) page of the application. It just displays
+  a message. Not very exciting... improvement is possible. -->
+  <h:head>
+    <title>${uistrings.login_title}</title>
+    <h:outputStylesheet name="layout.css" library="css" />
+    <h:outputStylesheet name="format.css" library="css" />
+  </h:head>
+  <h:body>
+    <ui:composition template="/templates/masterlayout.xhtml">
+      <ui:define name="content">
+        <h2>${uistrings.login_title}</h2>
+        <form method="POST" action="j_security_check">
+          <table>
+            <tr>
+              <th class="prompt">#{uistrings.username}: </th>
+              <td><input type="text" name="j_username"/></td>
+            </tr>
+            <tr>
+              <th class="prompt">#{uistrings.password}: </th>
+              <td><input type="password" name="j_password"/></td>
+            </tr>
+          </table>
+          <input type="submit" value="Login"/>
+        </form>
+      </ui:define>
+      <ui:define name="menuitems">
+        <li><h:link value="#{uistrings.cancel}" outcome="index"/></li>
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>

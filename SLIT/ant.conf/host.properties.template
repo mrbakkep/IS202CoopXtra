@@ -1,0 +1,27 @@
+#
+# Host properties
+#
+# Edit this file to match the installation
+# of the software on your computer
+#
+########################
+#
+# Java Enterprise server
+
+#Set this to Tomcat/TomEE's  installation directory
+j2ee.server.home=C:/DevTools/apache-tomee-webprofile-1.5.1
+
+# The username and password are defined in
+# tomcat-users.xml in the conf dir in the
+# TomEE installation.
+j2ee.server.username=deployer
+j2ee.server.password=deployer
+
+# path to the browser you want to use
+browser=C:/Program Files (x86)/Mozilla Firefox/firefox.exe
+
+# url's to your local server
+# you do not need to change these
+j2ee.server.url=http://localhost:8080
+j2ee.deployer.url=${j2ee.server.url}/manager/text
+derby.admin.url=${j2ee.server.url}/derby/derbynet

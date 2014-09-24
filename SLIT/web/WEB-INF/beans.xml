@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://java.sun.com/xml/ns/javaee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+       http://java.sun.com/xml/ns/javaee/beans_1_0.xsd">
+
+  <!-- This file must be included in the WEB-INF directory of the packaged
+  application if we are using CDI backing beans. The presence of this file
+  tells GlassFish that CDI should be enabled.
+
+  There is no need to change this file. The application would work just as well
+  if it was completely empty, but it must be present.
+  -->
+
+
+</beans>

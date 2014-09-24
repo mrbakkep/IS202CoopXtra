@@ -1,0 +1,84 @@
+body {
+  background:#fff;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+/* Font sizes */
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.layout-menu {
+  font-size: 16px;
+}
+
+
+.layout-outer {
+  background:#fff;    /* right column background colour */
+}
+.layout-outer .layout-inner {
+  background:#f4f4f4; /* left column background colour */
+  border-right: 1px solid black;
+}
+
+/* Header elements */
+.layout-header {
+  background-color:#fee;
+  border-bottom:thin solid #000;
+  text-align: center;
+}
+
+/* Menus */
+.layout-menu ul {
+  list-style-type: none;
+  padding-left: 0em;
+}
+.layout-menu ul ul {
+  list-style-type: none;
+  padding-left: 1em;
+}
+
+/* Footer */
+.layout-footer {
+  border-top:thin solid #000;
+  border-bottom: thin solid #000;
+}
+.layout-footer p {
+  padding:10px;
+  margin:0;
+}
+
+/* Page content */
+.layout-content {
+}
+
+/* Data Tables */
+table.data {
+  width: 90%;
+  margin: 10px;
+  border: thin solid black;
+  border-collapse: collapse;
+}
+
+table.data th, table.data td {
+  text-align: left;
+  border: thin solid black;
+  padding: 4px;
+}
+
+/* Forms using tables for layout */
+th.prompt {
+  text-align: right;
+}
+
+td.input {
+  text-align: left;
+}

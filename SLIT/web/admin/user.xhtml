@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+  <h:head>
+    <title>Facelet Title</title>
+  </h:head>
+  <h:body>
+    <ui:composition template="/templates/masterlayout.xhtml">
+      <ui:define name="content">
+        <p>#{authInfoBean.info}</p>
+
+        <h2>Enter User Data</h2>
+        <h:form id="userform">
+          <h:panelGrid columns="2">
+            <h:outputText value="Username:"/>
+            <h:panelGroup>
+              <h:inputText id="username" value="#{authBean.selectedUser.username}"/>
+            </h:panelGroup>
+
+            <h:outputText value="Password:"/>
+            <h:panelGroup>
+              <h:inputSecret id="pwd1" value="#{authBean.password1}"/>
+              <h:message for="pwd1"/>
+            </h:panelGroup>
+            <h:outputText value="Confirm Password:"/>
+            <h:panelGroup>
+              <h:inputSecret id="pwd2" value="#{authBean.password2}"/>
+              <h:message for="pwd2"/>
+            </h:panelGroup>
+
+            <h:outputText value="Groups:"/>
+            <h:selectManyCheckbox value="#{authBean.selectedUser.groups}"
+                                  layout="pageDirection"
+                                  converter="authGroupConverter">
+              <f:selectItems value="#{authBean.groupItems}"/>
+            </h:selectManyCheckbox>
+
+            <h:outputText value="&nbsp;"/>
+            <h:panelGroup>
+              <h:commandButton value="Save"
+                               action="#{authBean.saveSelectedUser()}"/>
+              &nbsp;
+              <h:commandButton value="Cancel" immediate="true"
+                               action="index"/>
+            </h:panelGroup>
+          </h:panelGrid>
+        </h:form>
+      </ui:define>
+
+      <ui:define name="menuitems">
+        <ui:include src="/admin/menu.xhtml" />
+      </ui:define>
+
+    </ui:composition>
+  </h:body>
+</html>
+

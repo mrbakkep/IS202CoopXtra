@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.0"
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+  <application>
+    <!--
+    The faces-config file is used to configure JSF.
+    In this project we are only using it for configuring internationalization
+    (i.e. support for multiple languages)
+    -->
+
+    <!-- The locale config tag defines the supported languages -->
+    <locale-config>
+      <!-- The default locale is used when we do not support the user's
+      preferred language. It is also used if no language is selected -->
+      <default-locale>no</default-locale>
+      <!-- supported-locale tags are used to define additional supported
+      languages -->
+      <supported-locale>en</supported-locale>
+    </locale-config>
+
+    <!-- The translations of user interface strings are kept in
+    resource bundles. A resource bundle is a group of java property files
+    with the same basename. Java package notation is used for the basename,
+    and the resource bundles are located with the java source code -->
+    <resource-bundle>
+      <!-- The no.uia.slit.uistrings package will contain property files
+      named common_en.properties, common_no.properties, etc. -->
+      <base-name>no.uia.slit.web.uistrings</base-name>
+      <!-- this is the name that is used to refer to the resource bundle
+      in the facelets (xhtml files) -->
+      <var>uistrings</var>
+    </resource-bundle>
+
+  </application>
+
+</faces-config>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/hrms4">
+
+  <Resource id="hrmsdb" type="DataSource">
+    #  MySQL example
+    #
+    #  This connector will not work until you download the driver at:
+    #  http://www.mysql.com/downloads/api-jdbc-stable.html
+
+    JdbcDriver  com.mysql.jdbc.Driver
+    JdbcUrl     jdbc:mysql://localhost/hrmsdb
+    UserName    mydba
+    Password    hemmelig
+    JTAManaged  true
+  </Resource>
+</Context>

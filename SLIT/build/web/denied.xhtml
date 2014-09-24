@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+  <h:head>
+    <title>Facelet Title</title>
+    <h:outputStylesheet name="layout.css" library="css" />
+    <h:outputStylesheet name="format.css" library="css" />
+  </h:head>
+  <h:body>
+    <ui:composition template="/templates/masterlayout.xhtml">
+      <ui:define name="content">
+        <h2>#{uistrings.login_failed_title}</h2>
+        <p>#{uistrings.login_failed_p1}</p>
+
+        <hr/>
+        <h2>Debug info - This will be removed from the finished system</h2>
+        <h3>Registered users:</h3>
+        <h:dataTable value="#{authBean.users}" var="user">
+          <h:column>
+            <f:facet name="header">#{uistrings.username}</f:facet>
+            #{user.username}
+          </h:column>
+          <h:column>
+            <f:facet name="header">#{uistrings.password}</f:facet>
+            #{user.password}
+          </h:column>
+          <h:column>
+            <f:facet name="header">#{uistrings.groups}</f:facet>
+            #{user.groups}
+          </h:column>
+        </h:dataTable>
+
+      </ui:define>
+
+      <ui:define name="menu">
+        <table>
+          <tr><td><h:link value="#{uistrings.student_pages}" outcome="student/index"/></td></tr>
+          <tr><td><h:link value="#{uistrings.teacher_pages}" outcome="teacher/index"/></td></tr>
+          <tr><td><h:link value="#{uistrings.admin_pages}" outcome="admin/index"/></td></tr>
+        </table>
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>
+

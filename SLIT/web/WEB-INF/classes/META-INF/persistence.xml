@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- persistence.xml contains the definition of one or more
+     persistence units -->
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <!-- This persistence unit is called HRMS and uses JTA transaction -->
+  <persistence-unit name="slitdb" transaction-type="JTA">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <jta-data-source>jdbc/slitdb</jta-data-source>
+    <!-- All entity classes in the application will be included
+    in the persistence unit. -->
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <!-- properties can be used to specify configuration settings.
+    Some properties are defined by JPA, some are application specific -->
+    <properties>
+      <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(SchemaAction=&apos;add,deleteTableContents&apos;,ForeignKeys=true)"/>
+    </properties>
+  </persistence-unit>
+</persistence>

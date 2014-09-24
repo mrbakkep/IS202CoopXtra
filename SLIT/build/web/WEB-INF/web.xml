@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file is a deployment descriptor. It contains the run-time
+configuration of a web application. It is mainly intended as a means of
+configuring the application when it is deployed in a production environment.
+There is rarely any reason for a developer to change this file. We will use it,
+unchanged, for the rest of the course -->
+
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <context-param>
+    <!-- This is a context parameter, it is used to pass information to the
+    parameter. The javax.faces.PROJECT_STAGE parameter controls the behaviour
+    of the application. The value Development will give us more information
+    when something goes wrong. -->
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Development</param-value>
+  </context-param>
+
+  <resource-ref>
+    <description>Tells the server which database we will use. The
+    datasource must be defined in context.xml.</description>
+    <res-ref-name>jdbc/slitdb</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+
+  <!-- This tag configures a servlet. The configuration in this file overrides
+  the annotation in the source code. This provides the installer with an
+  opportunity to change the servlet configuration. -->
+  <servlet>
+    <!-- The servlet name is used inside GlassFish to identify the servlet -->
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <filter>
+    <filter-name>DebugFilter</filter-name>
+    <filter-class>no.uia.slit.web.DebugFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>DebugFilter</filter-name>
+    <url-pattern>*</url-pattern>
+  </filter-mapping>
+
+  <!-- This tag binds the servlet to a URL pattern. All requests for URLs that
+  matches this pattern will be sent to the servlet. In our case all URLs ending
+  with the extension .xhtml will be sent to the Faces Servlet -->
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.xhtml</url-pattern>
+  </servlet-mapping>
+
+
+  <session-config>
+    <!-- The session timeout specifies how long (in minutes) the user can be
+    inactive before she is logged out -->
+    <session-timeout>30</session-timeout>
+  </session-config>
+
+  <!-- The welcome file list specifies one or more start pages for the
+  application. If a url that specifies a folder is requested, GlassFish
+  will try these files, in the listed order -->
+  <welcome-file-list>
+    <welcome-file>hrms.xhtml</welcome-file>
+    <welcome-file>index.xhtml</welcome-file>
+  </welcome-file-list>
+
+
+  <!-- Declaration of security constraints. The rules below controls
+  which parts of the system users in a particular category (role) will
+  have access to -->
+
+  <!-- This is just a declaration of the possible roles
+  for a user -->
+  <security-role>
+    <role-name>admin</role-name>
+  </security-role>
+  <security-role>
+    <role-name>student</role-name>
+  </security-role>
+  <security-role>
+    <role-name>teacher</role-name>
+  </security-role>
+
+  <!-- This is a security restriction. To access the pages in the admin
+  folder, the user must have the admin role (which is the same
+  thing as belonging to the admin group -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Admin pages</web-resource-name>
+      <url-pattern>/admin/*</url-pattern>
+      <http-method>GET</http-method>
+      <http-method>POST</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <!-- Only student users can access the student pages -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Student Pages</web-resource-name>
+      <url-pattern>/student/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>student</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <!-- ... and the teacher pages are only available to teachers -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Teacher Pages</web-resource-name>
+      <url-pattern>/teacher/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>teacher</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <!-- This is a specification of how login should be handled. The
+  value FORM tells the server that the user should be redirected to
+  the specificed form page when login is needed -->
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>SQLLogin</realm-name>
+    <form-login-config>
+      <form-login-page>/login.xhtml</form-login-page>
+      <form-error-page>/denied.xhtml</form-error-page>
+    </form-login-config>
+  </login-config>
+</web-app>

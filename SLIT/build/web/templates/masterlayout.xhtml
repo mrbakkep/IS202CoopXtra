@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- This template defines the layout for all pages in the SLIT
+  application -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <h:head>
+    <title>#{uistrings.app_abbrev}</title>
+    <h:outputStylesheet library="css" name="layout.css" />
+    <h:outputStylesheet library="css" name="format.css" />
+  </h:head>
+  <h:body>
+    <div class="layout-header">
+<!--      <h1>#{uistrings.app_name}</h1> -->
+      <h2>#{debugBean.userName}</h2>
+    </div>
+
+    <div class="layout-outer">
+      <div class="layout-inner">
+        <div class="layout-content">
+          <ui:insert name="content">
+            <ui:include src="/templates/nocontent.xhtml" />
+          </ui:insert>
+        </div>
+
+        <div class="layout-menu">
+          <p>
+            <h:outputText rendered="#{authInfoBean.loggedIn}"
+                          value="#{uistrings.logged_in_as} #{authInfoBean.userName}"/>
+            <h:outputText rendered="#{not authInfoBean.loggedIn}"
+                          value="#{uistrings.not_logged_in}"/>
+          </p>
+          <h3>#{uistrings.menu_h1}</h3>
+          <ul>
+            <li>
+              <h:form rendered="#{authInfoBean.isLoggedIn()}">
+                <h:commandLink action="#{authInfoBean.logout()}" value="#{uistrings.logout}"/>
+              </h:form>
+            </li>
+            <ui:insert name="menuitems"/>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="layout-footer">
+      <p><h:outputText rendered="#{false}">This text is not rendered</h:outputText></p>
+      <h:messages/>
+    </div>
+  </h:body>
+</html>

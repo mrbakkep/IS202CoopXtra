@@ -1,0 +1,54 @@
+/*
+ * Overall layout of pages (divs, by name or class)
+ */
+ body {
+  margin:0;
+  padding:0;
+  width:100%;
+}
+div.layout-header {
+  clear:both;
+  float:left;
+  width:100%;
+}
+
+/* column container */
+div.layout-outer {
+  clear:both;
+  overflow:hidden; /* This chops off any overhanging divs */
+}
+/* common column settings */
+.layout-outer, .layout-inner {
+  float:left;
+  width:100%;
+  position:relative;
+}
+.layout-content,
+.layout-menu {
+  float:left;
+  position:relative;
+  padding:0 0 1em 0;
+  overflow:hidden;
+}
+.layout-outer .layout-inner {
+  right:75%;      /* right column width */
+}
+.layout-outer .layout-content {
+  width:71%;      /* right column content width */
+  left:102%;      /* 100% plus left column left padding */
+}
+.layout-outer .layout-menu {
+  width:21%;      /* left column content width (column width minus left and right padding) */
+  left:6%;      /* (right column left and right padding) plus (left column left padding) */
+}
+/* Footer styles */
+.layout-footer {
+  clear:both;
+  float:left;
+  width:100%;
+  border-top:1px solid #000;
+}
+#footer p {
+  padding:10px;
+  margin:0;
+}

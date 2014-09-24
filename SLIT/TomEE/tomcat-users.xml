@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tomcat-users>
+  <role rolename="admin-gui"/>
+  <role rolename="admin-script"/>
+  <role rolename="sysadm" />
+
+  <!-- "Backdoor" slit administrator user. Needed to get into the system
+  before any normal users have been added -->
+  <user username="bootstrap" password="bootstrap" roles="sysadm" />
+
+  <user username="tomee" password="tomee" roles="tomee-admin,manager-gui,admin-gui" />
+  <user username="deployer" password="deployer" roles="manager-script,admin-script" />
+</tomcat-users>
+

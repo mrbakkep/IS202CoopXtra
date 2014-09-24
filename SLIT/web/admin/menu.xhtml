@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+  <!-- This is the default sidebar menu for HRMS -->
+  <head>
+    <title>IGNORED</title>
+  </head>
+
+  <h:body>
+    <!-- This is the systems main menu. Some pages may want to change the menu
+    so it is defined in a separate file, to make it easier to override. -->
+    <ui:composition>
+      <li><h:link value="#{uistrings.admin_pages}" outcome="index"/></li>
+      <li>
+        <ul>
+          <li><h:link value="#{uistrings.useradm}" outcome="users"/></li>
+          <li>
+            <c:if test="#{view.viewId eq '/admin/users.xhtml'}">
+              <ul>
+                  <li><h:form><h:commandLink action="#{authBean.editNewUser()}"
+                                             value="#{uistrings.create_user}" /></h:form></li>
+              </ul>
+            </c:if>
+            <c:if test="#{view.viewId eq '/admin/user.xhtml'}">
+              <ul>
+                <li><h:form><h:commandLink action="#{authBean.saveSelectedUser()}"
+                                           value="#{uistrings.delete} user #{authBean.selectedUser.username}"/></h:form></li>
+              </ul>
+            </c:if>
+
+          </li>
+        </ul>
+      </li>
+    </ui:composition>
+  </h:body>
+</html>
