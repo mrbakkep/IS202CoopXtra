@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+  <!-- DENNE FILEN INKLUDERES I INDEX -->
+  <head>
+    <title>IGNORED</title>
+  </head>
+
+  <h:body>
+    <!-- This is the systems main menu. Some pages may want to change the menu
+    so it is defined in a separate file, to make it easier to override. -->
+    <ui:composition>
+      <ul>
+        <li><h:link value="Hjem" outcome="index"/></li>
+        <li><h:link value="Innlevering" outcome="innlevering"/></li>
+        <li><h:link value="Status" outcome="status"/></li>
+        <li><h:link value="Deltakere" outcome="deltakere"/></li>
+        <li><h:link value="Fagstoff" outcome="fagstoff"/></li>
+        <li><h:link value="Modulvideo" outcome="video"/></li>
+      </ul>
+    </ui:composition>
+  </h:body>
+</html>
