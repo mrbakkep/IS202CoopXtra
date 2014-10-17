@@ -1,23 +1,38 @@
 body {
   background:#fff;
-  font-family: sans-serif;
+  font-family: rockwell;
   font-size: 14px;
 }
 /* Font sizes */
 h1 {
   font-size: 28px;
   font-weight: bold;
+  color: black;
 }
 h2 {
   font-size: 20px;
   font-weight: bold;
+  color: white;
 }
 h3 {
   font-size: 16px;
   font-weight: bold;
+  color: black;
+}
+
+menuitems
+a:link {
+  color: #3333FF;
+}
+a:visited {
+  color: #3333FF;
+}
+a:hover {
+    color: black;
 }
 .layout-menu {
-  font-size: 16px;
+    background:#D6E0EA;
+    font-size: 16px;
 }
 
 
@@ -25,23 +40,25 @@ h3 {
   background:#fff;    /* right column background colour */
 }
 .layout-outer .layout-inner {
-  background:#f4f4f4; /* left column background colour */
+  background:#D6E0EA; /* left column background colour */
   border-right: 1px solid black;
 }
 
 /* Header elements */
 .layout-header {
-  background-color:#fee;
+  background-color:#2952A3;
   border-bottom:thin solid #000;
   text-align: center;
 }
 
 /* Menus */
 .layout-menu ul {
+  background:#D6E0EA;
   list-style-type: none;
   padding-left: 0em;
 }
 .layout-menu ul ul {
+  background:#D6E0EA;
   list-style-type: none;
   padding-left: 1em;
 }

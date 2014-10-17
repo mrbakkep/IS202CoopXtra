@@ -10,11 +10,15 @@
   <h:body>
     <ui:composition template="/templates/masterlayout.xhtml">
       <ui:define name="content">
-        <h2>#{uistrings.modules}</h2>
-        <h3>#{uistrings.module_list_header}</h3>
-        <h:dataTable styleClass="data" value="" var="m">
+        <h1>#{uistrings.participants}</h1>
+         <h:dataTable value="#{authBean.users}" var="user" styleClass="data">
           <h:column>
-              <p>Her vil alle deltakere dukke opp som hyperlinker til sin profil</p>
+            <f:facet name="header">#{uistrings.username}</f:facet>
+            #{user.username}
+          </h:column>
+          <h:column>
+            <f:facet name="header">#{uistrings.groups}</f:facet>
+            #{user.groups}
           </h:column>
         </h:dataTable>
       </ui:define>

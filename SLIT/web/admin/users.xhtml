@@ -10,7 +10,7 @@
   <h:body>
     <ui:composition template="/templates/masterlayout.xhtml">
       <ui:define name="content">
-        <h2>#{uistrings.useradm}</h2>
+        <h1>#{uistrings.useradm}</h1>
         <h:dataTable value="#{authBean.users}" var="user" styleClass="data">
           <h:column>
             <f:facet name="header">#{uistrings.username}</f:facet>
