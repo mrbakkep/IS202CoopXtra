@@ -9,7 +9,6 @@ import javax.inject.Named;
 import no.uia.slit.ejb.DownloadableFilePersister;
 import no.uia.slit.entity.DownloadableFile;
 import no.uia.slit.web.JsfUtils;
-import no.uia.slit.web.JsfUtils;
 
 /**
  *

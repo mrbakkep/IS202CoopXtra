@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
       xmlns:ui="http://java.sun.com/jsf/facelets">
   <h:head>
     <title>Facelet Title</title>
@@ -11,11 +12,12 @@
     <ui:composition template="/templates/masterlayout.xhtml">
       <ui:define name="content">
         <h1>#{uistrings.resources}</h1>
-        <h:dataTable styleClass="data" value="" var="m">
-          <h:column>
-              <p>Her skal lærer dele relevant fagstoff til faget</p>
-          </h:column>
-        </h:dataTable>
+        <h:form enctype="multipart/form-data">
+          <t:inputFileUpload label="Select File" value="#{uploadbean.upload}"/>
+          <br/>
+          <!-- and this button triggers the uploading and persisting process -->
+          <h:commandButton value="Last opp" action="#{uploadbean.submit()}"/>
+        </h:form>
       </ui:define>
 
       <ui:define name="menuitems">

@@ -12,11 +12,11 @@
   <h:body>
     <ui:composition template="/templates/masterlayout.xhtml">
       <ui:define name="content">
-        <h2>#{uistrings.login_failed_title}</h2>
+        <h1>#{uistrings.login_failed_title}</h1>
         <p>#{uistrings.login_failed_p1}</p>
 
         <hr/>
-        <h2>Debug info - This will be removed from the finished system</h2>
+        <h1>Debug info - This will be removed from the finished system</h1>
         <h3>Registered users:</h3>
         <h:dataTable value="#{authBean.users}" var="user">
           <h:column>

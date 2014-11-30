@@ -8,16 +8,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author even
  */
 @Entity
+@NamedQuery(name = "Student.byUsername",
+        query = "select s from Student s where s.username = :username")
 public class Student {
-   @Id @GeneratedValue
+   @Id 
+   @GeneratedValue
    private long Id;
-   
+
    @Column(unique=true)
    private String username;
 

@@ -34,6 +34,8 @@ public abstract class AbstractPersister<T> {
         getEntityManager().persist(entity);
         return entity;
     }
+    
+   
 
     /** Update a table row, by merging changes from entity into the
      * table row corresponding to entity */

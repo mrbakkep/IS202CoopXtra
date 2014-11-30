@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <!-- This page contains the form for entering and editing employee data -->
+  <h:head>
+    <title>IGNORED</title>
+    <!-- The basics of using forms to edit a single entity is
+    explained in department.xthml -->
+    <f:metadata>
+      <f:viewParam name="empId" value="#{empbean.empId}" />
+    </f:metadata>
+  </h:head>
+  <h:body>
+    <ui:composition template="/templates/masterlayout.xhtml">
+      <ui:define name="content">
+        <h1>#{uistrings.student_new}</h1>
+        <h:form>
+          <h:panelGrid columns="2">
+            <h:outputText value="#{uistrings.student_id}:" rendered="#{empbean.updating}"  />
+            <h:outputText value="#{empbean.empId}" rendered="#{empbean.updating}" />
+            <h:outputText value="#{uistrings.student_name}:" />
+            <h:panelGroup>
+              <h:inputText id="name" label="#{uistrings.student_name}"
+                           value="#{empbean.name}" required="true" />
+              <h:message for="name" />
+            </h:panelGroup>
+
+            <h:outputText value="#{uistrings.student_id}:" />
+            <h:panelGroup>
+              <h:inputText id="salary" label="#{uistrings.student_id}"
+                           value="#{empbean.salary}" />
+              <h:message for="result" />
+            </h:panelGroup>
+
+            <h:panelGroup>
+              <!-- All form data is handled as strings when passed over
+                the network. Consequently, we need a Converter to interpret
+                the string value, and return the actual object, and the other
+                round when the data is sent to the browser. -->
+              <h:outputText value="#{uistrings.student_module}:" />
+              <h:selectOneMenu value="#{empbean.department}"
+                               converter="#{depconverter}">
+                <f:selectItems value="#{deplistbean.departments}" var="dep"
+                               itemValue="#{dep}" itemLabel="#{dep.name}"
+                               />
+              </h:selectOneMenu>
+            </h:panelGroup>
+          </h:panelGrid>
+
+          <h:commandButton value="#{uistrings.student_save}"
+                           action="#{empbean.saveEmployee}" />
+          <h:commandButton value="#{uistrings.student_delete}"
+                           rendered="#{empbean.updating}"
+                           action="#{empbean.deleteEmployee}" />
+          <h:commandButton value="#{uistrings.student_cancel}" immediate="true"
+                           action="employees" />
+        </h:form>
+      </ui:define>
+      <ui:define name="menuitems">
+        <ui:include src="menu.xhtml" />
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package no.uia.slit.entity;
 
 import java.io.Serializable;
@@ -13,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import no.uia.slit.web.JsfUtils;
+
 
 /**
  *

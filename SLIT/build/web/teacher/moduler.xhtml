@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <!-- This page displays all departments in list form, with buttons for
+    adding and deleting departments -->
+
+  <h:head>
+    <title>IGNORED</title>
+  </h:head>
+  <h:body>
+    <ui:composition template="/templates/masterlayout.xhtml">
+      <ui:define name="content">
+        <!-- This page displays the list of departments with
+        links for editing, and a button for creating new ones -->
+        <h1>#{uistrings.modules}</h1>
+
+        <!-- The dataTable tag is used to display the list.
+        It works a bit like a for-each loop in java. The
+        var attribute binds the name dep to each department in turn
+        -->
+        <h:dataTable value="#{deplistbean.departments}" var="dep"
+                     styleClass="data">
+          <h:column>
+            <f:facet name="header">#{uistrings.module_no}</f:facet>
+            #{dep.depNo}
+          </h:column>
+          <h:column>
+            <f:facet name="header">#{uistrings.module_name}</f:facet>
+            <!-- The department name is a link to a detail page for the department.
+            We specify which department we want to see with the parameter depNo
+            int the url (which is the value of the outcome attribute -->
+            <h:link outcome="modul?depno=#{dep.depNo}">#{dep.name}</h:link>
+          </h:column>
+        </h:dataTable>
+
+        <!-- We can use the same form to create new departments, and to edit
+        existing ones, using this little trick: If we specify an invalid department
+        id in the url parameter, the department bean will just assume we want a new one -->
+        <h:link value="#{uistrings.module_new}" outcome="modul?depno=0" />
+      </ui:define>
+      <ui:define name="menuitems">
+        <ui:include src="menu.xhtml" />
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>

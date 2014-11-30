@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <!-- This page contains the employee overview, in table form, with buttons
+  for adding, editing, and deleting employees. See the comments in
+  departments.xhtml for more detailed explanations -->
+  <h:head>
+    <title>IGNORED</title>
+  </h:head>
+  <h:body>
+    <ui:composition template="/templates/masterlayout.xhtml">
+      <ui:define name="content">
+        <h1>#{uistrings.student_h1}</h1>
+
+        <h:dataTable value="#{emplistbean.employees}" var="emp"
+                     styleClass="data" columnClasses="pk,name,name">
+          <h:column class="pk">
+            <f:facet name="header">#{uistrings.student_id}</f:facet>
+            #{emp.id}
+          </h:column>
+
+          <h:column>
+            <f:facet name="header">#{uistrings.student_name}</f:facet>
+            <!-- The employee name is a link to the employee edit/detail page.
+            the employee id is passed as a parameter in the url. See
+            the department link below for a different way of sending an id
+            parameter -->
+            <h:link outcome="student">
+              <f:param name="empId" value="#{emp.id}"/>
+              #{emp.name}
+            </h:link>
+          </h:column>
+
+          <h:column>
+            <f:facet name="header">#{uistrings.student_module}</f:facet>
+            <!-- The department name is a link to a detail page for the department -->
+            <h:link outcome="modul?depno=#{emp.department.depNo}">
+              #{emp.department.name}
+            </h:link>
+          </h:column>
+        </h:dataTable>
+        <h:link value="#{uistrings.student_new}" outcome="student?empId=0"/>
+      </ui:define>
+      <ui:define name="menuitems">
+        <ui:include src="menu.xhtml" />
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>
