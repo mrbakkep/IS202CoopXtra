@@ -3,10 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Fernando/Documents/UiA/3.%20semester/IS-202/SLIT/web/teacher/fagstoff.xhtml</file>
-            <file>file:/C:/Users/Fernando/Documents/UiA/3.%20semester/IS-202/SLIT/web/teacher/moduler.xhtml</file>
-            <file>file:/C:/Users/Fernando/Documents/UiA/3.%20semester/IS-202/SLIT/src/java/no/uia/slit/web/uistrings.properties</file>
-            <file>file:/C:/Users/Fernando/Documents/UiA/3.%20semester/IS-202/SLIT/web/teacher/modul.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/student/fagstoff.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/teacher/deltakere.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/teacher/fagstoff.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/src/java/no/uia/slit/web/View.java</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/student/video.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/src/java/no/uia/slit/web/uistrings.properties</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/student/profilside.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/src/java/no/uia/slit/web/department/DepartmentListBean.java</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/teacher/moduler.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/src/java/no/uia/slit/web/DebugFilter.java</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/src/java/no/uia/slit/web/DebugBean.java</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/student/menuitems.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/student/index.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/student/deltakere.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/student/menu.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/admin/index.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/teacher/index.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/src/java/no/uia/slit/web/uistrings_en.properties</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/student/status.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/web/student/innlevering.xhtml</file>
+            <file>file:/C:/Users/Thomas/Desktop/SLIT3/SLIT/src/java/no/uia/slit/web/TeacherListBean.java</file>
         </group>
     </open-files>
 </project-private>

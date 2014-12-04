@@ -27,10 +27,7 @@
               </ul>
             </c:if>
             <c:if test="#{view.viewId eq '/admin/user.xhtml'}">
-              <ul>
-                <li><h:form><h:commandLink action="#{authBean.saveSelectedUser()}"
-                                           value="#{uistrings.delete} user #{authBean.selectedUser.username}"/></h:form></li>
-              </ul>
+
             </c:if>
 
           </li>

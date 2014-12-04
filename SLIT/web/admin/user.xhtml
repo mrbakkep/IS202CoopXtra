@@ -43,7 +43,8 @@
             <h:panelGroup>
               <h:commandButton value="Save"
                                action="#{authBean.saveSelectedUser()}"/>
-              &nbsp;
+              <h:commandButton value="Delete"
+                               action="#{authBean.deleteSelectedUser()}"/>
               <h:commandButton value="Cancel" immediate="true"
                                action="index"/>
             </h:panelGroup>

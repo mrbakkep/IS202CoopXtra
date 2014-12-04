@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- This page contains the form for editing department details -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+  <h:head>
+    <title>IGNORED</title>
+
+    <!-- This is the edit department page.
+    The department to edit is selected with the depno url parameter,
+    which is passed on to the setDepNo() method in depbean. -->
+    <f:metadata>
+      <f:viewParam name="depno" value="#{depbean.depNo}" />
+    </f:metadata>
+  </h:head>
+  <h:body>
+    <ui:composition template="/templates/masterlayout.xhtml">
+      <ui:define name="content">
+        <h1>#{uistrings.module_list_header}</h1>
+        <h:form>
+          <!-- panelgrid is used to line up the form. The department number
+          is displayed only when editing an existing department. The department
+          number is allocated when the department is saved, so it is not
+          meaningful when the form is used to edit a new department -->
+          <h:panelGrid columns="2">
+            <h:outputText value="#{uistrings.module_no}" rendered="#{depbean.updating}" />
+            <h:outputText value="#{depbean.depNo}" rendered="#{depbean.updating}" />
+            <h:outputText value="#{uistrings.module_name}" />
+            <h:panelGroup>
+              <!-- The h:panelGroup tag is used to put more than one "thing"
+              into a single cell in the panelgrid. We use it to display any
+              error messages (with the h:messages tag) next to the field
+              they apply to -->
+              <h:inputText id="name" label="Name"
+                           value="#{depbean.name}" />
+              <h:message for="name" />
+            </h:panelGroup>
+          </h:panelGrid>
+
+          <!-- the available actions are displayed as buttons. The delete
+          action is only meaningful for existing departments -->
+          <!-- the cancel button needs an immediate="true" attribute, to
+           bypass input validation -->
+          <h:commandButton value="#{uistrings.module_save}"
+                           action="#{depbean.saveDepartment}" />
+          <h:commandButton value="#{uistrings.module_delete}"
+                           action="#{depbean.deleteDepartment}" rendered="#{depbean.updating}" />
+          <h:commandButton value="#{uistrings.module_cancel}"
+                           immediate="true"
+                           action="moduler" />
+        </h:form>
+
+        <h3>#{uistrings.module_participants}</h3>
+
+        <!-- display the employees of the department, using a datatable -->
+        <h:dataTable value="#{depbean.employees}" var="emp"
+                     styleClass="data">
+          <h:column>
+            <f:facet name="header">#{uistrings.student_id}</f:facet>
+            #{emp.id}
+          </h:column>
+
+          <!-- the employee name is a link to the employee detail page -->
+          <h:column>
+            <f:facet name="header">#{uistrings.student_name}</f:facet>
+            <h:link outcome="employee?empId=#{emp.id}">#{emp.name}</h:link>
+          </h:column>
+        </h:dataTable>
+      </ui:define>
+      <ui:define name="menuitems">
+        <ui:include src="menu.xhtml" />
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>
